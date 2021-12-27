@@ -47,7 +47,7 @@ class RegisterListView(FormView, BaseClassContextMixin):
                   f' перейдите по ссылке:\n{settings.DOMAIN_NAME}{verify_link}'
         return send_mail(title, message, settings.EMAIL_HOST_USER, [user.email], fail_silently=False)
 
-    def verify(request, email, activation_key):
+    def verify(self, email, activation_key):
         try:
             user = User.objects.get(email=email)
             if user.activation_key == activation_key and not user.is_activation_key_expired():
@@ -55,8 +55,8 @@ class RegisterListView(FormView, BaseClassContextMixin):
                 user.activation_key_expires = None
                 user.is_active = True
                 user.save()
-                auth.login(request, user)
-            return render(request, 'authapp/verification.html')
+                auth.login(self, user)
+            return render(self, 'authapp/verification.html')
         except Exception as e:
             print(f'error activation user : {e.args}')
             return HttpResponseRedirect(reverse('index'))
