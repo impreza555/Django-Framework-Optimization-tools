@@ -2,4 +2,5 @@
 db.sqlite3_old
 ../venv
 __pycache__/
+.env
 

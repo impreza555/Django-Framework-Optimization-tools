@@ -1,6 +1,10 @@
 import json
 from django.core.management.base import BaseCommand
 from mainapp.models import ProductCategory, Product
+from authapp.models import User
+
+
+super_user = User.objects.create_superuser('django', 'django@geekshop.local', 'geekbrains', age=33)
 
 
 def load_from_json(file_name):
