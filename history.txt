@@ -1,0 +1,208 @@
+    1  exit
+    2  cd /home/django/
+    3  chown -R django /home/django/
+    4  chmod -R 755 /home/django/Django-Framework-Optimization-tools
+    5  source env/bin/activate
+    6  cd Django-Framework-Optimization-tools
+    7  python3 manage.py runserver
+    8  python3 manage.py runserver 0.0.0.0:8000
+    9  python3 manage.py runserver
+   10  python3 manage.py runserver 0.0.0.0:8000
+   11  ssh-copy-id root@194.67.93.64
+   12  ssh-keygen
+   13  cat /root/.ssh/id_rsa.pub
+   14  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDX/Dbj3NLVqdHXvfo82GfwCp8rESSwTXDJABmyvPXcZqihbPA4FzhSseuAzGO6Eu6GOfUm1Yg8FMPF9TBBIUCj4VsIOmKulc73cnQJjE2ZbHEIEj3iKqhMSZwsFY/72ND5JObCx3PliYE7doSPHpXCnaw6ocmcZ/Zp4Bd2W6dtf2qib9sW3Q3EBHD3rm1YiVLtIDyz9O5/6QVvhUngTLchznLXDZ+IknHbML0iNS5UNhtvbeNT3BOMJJ86RhqAJPa1ry1E/JLpm8zggK+PLwvq5NErXj4/TZvOi05NiNINNimZhicY4LNMTHhuIiXRbrENbwebC1qXwYNOSTe2EETrvdWZcFofTHgp94hj/sZ3sZmE6UIaVhbNRrxB+xnMjUPbxR6B+zeA4s4ic3E2WhlDLccxPy7tkYiMl6EX7VqZ30xKZ93VyMIj5E4JXanyU54p+UdjCmbjEYXetkE4SVlNFWVErAN6toJGRP1nFymKY4uBxYFpYkxMPWnyGWrfPMk= root@194-67-93-64.cloudvps.regruhosting.ru
+   15  root@194-67-93-64:~# cat /root/.ssh/id_rsa.pub
+   16  cat /root/.ssh/id_rsa.pub
+   17  apt update
+   18  apt install nginx
+   19  apt install postgresql postgresql-contrib
+   20  apt install python3-venv
+   21  apt install git-core
+   22  nano /etc/postgresql/12/main/pg_hba.conf
+   23  systemctl status postgresql
+   24  useradd -g www-data -m django
+   25  cd /home/django/
+   26  cd /home/django/
+   27  git clone git@github.com:impreza555/Django-Framework-Optimization-tools.git
+   28  cd geekshop/cd geekshop/
+   29  cd geekshop/
+   30  git clone git@github.com:impreza555/Django-Framework-Optimization-tools.git
+   31  ls
+   32  python3 -m venv env
+   33  source env/bin/activate
+   34  cd Django-Framework-Optimization-tools
+   35  ls
+   36  pip3 install -r requirements.txt
+   37  cd geekshop
+   38  ls
+   39  cd ..
+   40  ls
+   41  cd ..
+   42  ls
+   43  git status
+   44  cd Django-Framework-Optimization-tools
+   45  git status
+   46  git checkout Lesson_5
+   47  git status
+   48  ls
+   49  pip3 install -r requirements.txt
+   50  pip list
+   51  pip3 install gunicorn
+   52  pip list
+   53  python3 manage.py migrate
+   54  ls
+   55  nano .env
+   56  ls
+   57  nano .env
+   58  python3 manage.py migrate
+   59  python3 manage.py makemigration
+   60  python3 manage.py makemigrations
+   61  python3 manage.py migrate
+   62  sudo -u postgres psql
+   63  sudo -u postgres psql
+   64  cd /home/django/
+   65  ls
+   66  cd Django-Framework-Optimization-tools
+   67  ls
+   68  python manage.py makemigrations
+   69  python3 manage.py migrate
+   70  cd ..
+   71  ls
+   72  source env/bin/activate
+   73  cd Django-Framework-Optimization-tools
+   74  git status
+   75  python manage.py makemigrations
+   76  python3 manage.py migrate
+   77  python3 manage.py fill_db
+   78  python3 manage.py runserver
+   79  cd ..
+   80  chown -R django /home/django/
+   81  chmod -R 755 /home/django/Django-Framework-Optimization-tools
+   82  sudo nano /etc/systemd/system/gunicorn.service
+   83  ls
+   84  cd env
+   85  lss
+   86  ls
+   87  sudo nano /etc/systemd/system/gunicorn.service
+   88  sudo systemctl enable gunicorn
+   89  sudo systemctl start gunicorn
+   90  sudo systemctl status gunicorn
+   91  cd ..
+   92  sudo systemctl status gunicorn
+   93  sudo systemctl start gunicorn
+   94  sudo systemctl status gunicorn
+   95  sudo nano /etc/systemd/system/gunicorn.service
+   96  ls
+   97  cd Django-Framework-Optimization-tools/
+   98  ls
+   99  sudo nano /etc/systemd/system/gunicorn.service
+  100  cd /home/django/
+  101  ls
+  102  ls -la
+  103  cd env
+  104  ls -la
+  105  cd bin
+  106  ls -la
+  107  sudo nano /etc/systemd/system/gunicorn.service
+  108  cd ..
+  109  ls -la
+  110  cd ..
+  111  ls -la
+  112  cd Django-Framework-Optimization-tools
+  113  ls -la
+  114  cd geekshop/
+  115  ls -la
+  116  cd ..
+  117  ls -la
+  118  sudo nano /etc/systemd/system/gunicorn.service
+  119  sudo systemctl enable gunicorn
+  120  sudo systemctl start gunicorn
+  121  sudo systemctl status gunicorn
+  122  sudo nano /etc/systemd/system/gunicorn.service
+  123  cd /home/django/
+  124  ls -la
+  125  source env/bin/activate
+  126  cd Django-Framework-Optimization-tools
+  127  python3 manage.py runserver
+  128  python3 manage.py runserver 0.0.0.0:8000
+  129  ls -la
+  130  pip list
+  131  sudo nano /etc/systemd/system/gunicorn.service
+  132  cd /home/django/
+  133  ls -la
+  134  cd
+  135  chown -R django /home/django/
+  136  chmod -R 755 /home/django/Django-Framework-Optimization-tools
+  137  cd /home/django/
+  138  ls -la
+  139  sudo nano /etc/systemd/system/gunicorn.service
+  140  sudo systemctl enable gunicorn
+  141  sudo systemctl start gunicorn
+  142  sudo systemctl status gunicorn
+  143  cd /home/django/
+  144  ls -la
+  145  cd Dj
+  146  cd Django-Framework-Optimization-tools/
+  147  ls -la
+  148  sudo nano /etc/systemd/system/gunicorn.service
+  149  cd ..
+  150  ls -la
+  151  cd env
+  152  ls -la
+  153  cd bin
+  154  ls -la
+  155  sudo nano /etc/systemd/system/gunicorn.service
+  156  lear
+  157  sudo nano /etc/systemd/system/gunicorn.service
+  158  sudo systemctl enable gunicorn
+  159  sudo systemctl start gunicorn
+  160  sudo systemctl status gunicorn
+  161  chown -R django /home/django
+  162  sudo systemctl enable gunicorn
+  163  sudo systemctl start gunicorn
+  164  sudo systemctl status gunicorn
+  165  sudo systemctl restart gunicorn
+  166  sudo systemctl status gunicorn
+  167  cd home django
+  168  cd home/django
+  169  useradd -g www-data -m django
+  170  cd /home/django/
+  171  source env/bin/activate
+  172  pip3 install gunicorn
+  173  chown -R django /home/django/
+  174  chmod -R 755 /home/django/geekshop/
+  175  chmod -R 755 /home/django/Django-Framework-Optimization-tools/
+  176  sudo nano /etc/systemd/system/gunicorn.service
+  177  sudo systemctl restart gunicorn
+  178  sudo systemctl status gunicorn
+  179  ls -la
+  180  cd Django-Framework-Optimization-tools/
+  181  ls -la
+  182  cd geekshop/
+  183  ls -la
+  184  cd .
+  185  cd../..
+  186  cd ../..
+  187  ls -la
+  188  sudo nano /etc/systemd/system/gunicorn.service
+  189  cd /home/django
+  190  ls -la
+  191  source env/bin/activate
+  192  git status
+  193  cd Django-Framework-Optimization-tools/
+  194  git status
+  195  git pull
+  196  git status
+  197  exit
+  198  sudo nano /etc/nginx/sites-available/geekshop
+  199  sudo systemctl restart nginx
+  200  sudo systemctl status nginx
+  201  exit
+  202  rm /etc/nginx/sites-enabled/default
+  203  exit
+  204  tail -f /var/log/nginx/error.log
+  205  exit
+  206  cd /home/django
+  207  source env/bin/activate
+  208  history > /tmp/history.txt
