@@ -177,11 +177,11 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True if os.getenv('EMAIL_USE_SSL') == 'True' else False
 EMAIL_USE_TLS = True if os.getenv('EMAIL_USE_SSL') == 'True' else False
-SERVER_EMAIL = EMAIL_HOST_USER
+# SERVER_EMAIL = EMAIL_HOST_USER
 
 # EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_FILE_PATH = 'tmp/email-messages/'
 
 AUTHENTICATION_BACKENDS = (
