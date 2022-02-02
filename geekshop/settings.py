@@ -172,16 +172,16 @@ SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
 DOMAIN_NAME = os.getenv('DOMAIN_NAME')
 EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_PORT = int(os.getenv('EMAIL_PORT'))
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True if os.getenv('EMAIL_USE_SSL') == 'True' else False
-EMAIL_USE_TLS = True if os.getenv('EMAIL_USE_SSL') == 'True' else False
-# SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_USE_TLS = True if os.getenv('EMAIL_USE_TLS') == 'True' else False
+SERVER_EMAIL = EMAIL_HOST_USER
 
 # EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # EMAIL_FILE_PATH = 'tmp/email-messages/'
 
 AUTHENTICATION_BACKENDS = (
