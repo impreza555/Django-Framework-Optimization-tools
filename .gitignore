@@ -1,6 +1,6 @@
 /.idea
 db.sqlite3_old
-../venv
+venv/
 __pycache__/
 .env
 
