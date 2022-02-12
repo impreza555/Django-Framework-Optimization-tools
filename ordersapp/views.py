@@ -5,13 +5,13 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView, TemplateView
 from baskets.models import Basket
-from mainapp.mixin import BaseClassContextMixin
+from mainapp.mixin import BaseClassContextMixin, UserDispatchMixin
 from mainapp.models import Product
 from ordersapp.forms import OrderItemsForm
 from ordersapp.models import Order, OrderItem
 
 
-class OrderList(ListView, BaseClassContextMixin):
+class OrderList(ListView, BaseClassContextMixin, UserDispatchMixin):
     model = Order
     title = 'Geekshop | Список заказов'
 
@@ -19,7 +19,7 @@ class OrderList(ListView, BaseClassContextMixin):
         return Order.objects.filter(is_active=True, user=self.request.user)
 
 
-class OrderItemsCreate(CreateView, BaseClassContextMixin):
+class OrderItemsCreate(CreateView, BaseClassContextMixin, UserDispatchMixin):
     model = Order
     fields = []
     success_url = reverse_lazy('ordersapp:orders_list')
@@ -59,7 +59,7 @@ class OrderItemsCreate(CreateView, BaseClassContextMixin):
         return super(OrderItemsCreate, self).form_valid(form)
 
 
-class OrderItemsUpdate(UpdateView, BaseClassContextMixin):
+class OrderItemsUpdate(UpdateView, BaseClassContextMixin, UserDispatchMixin):
     model = Order
     fields = []
     success_url = reverse_lazy('ordersapp:orders_list')
@@ -92,13 +92,13 @@ class OrderItemsUpdate(UpdateView, BaseClassContextMixin):
         return super(OrderItemsUpdate, self).form_valid(form)
 
 
-class OrderDelete(DeleteView, BaseClassContextMixin):
+class OrderDelete(DeleteView, BaseClassContextMixin, UserDispatchMixin):
     model = Order
     success_url = reverse_lazy('ordersapp:orders_list')
     title = 'Geekshop | Заказы/удаление'
 
 
-class OrderRead(DetailView, BaseClassContextMixin):
+class OrderRead(DetailView, BaseClassContextMixin, UserDispatchMixin):
     model = Order
     title = 'Geekshop | Заказы/просмотр'
 
