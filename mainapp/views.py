@@ -6,6 +6,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render
 from django.views.generic import DetailView
 from mainapp.models import Product, ProductCategory
+# from django.views.decorators.cache import cache_page
 
 MODULE_DIR = os.path.dirname(__file__)
 
@@ -65,6 +66,7 @@ def get_product_one(pk):
         return Product.objects.get(pk=pk)
 
 
+# @cache_page(3600)
 def products(request, id_category=None, page=1):
     context = {
         'title': 'Geekshop | Каталог',
