@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.template.loader import render_to_string
 from baskets.models import Basket
 from mainapp.models import Product
-from django.db.models import F, Q
+from django.db.models import F
 
 
 @login_required
@@ -13,7 +13,6 @@ def basket_add(request, id):
     baskets = Basket.objects.filter(user=user_select, product=product)
     if baskets:
         basket = baskets.first()
-        # basket.quantity += 1
         basket.quantity = F('quantity') + 1
         basket.save()
         update_queries = list(filter(lambda x: 'UPDATE' in x['sql'], connection.queries))

@@ -56,12 +56,6 @@ class CategoryListView(ListView, BaseClassContextMixin, CustomDispatchMixin):
     template_name = 'admins/admin-category-read.html'
     title = 'Админка | Список категорий'
 
-    # def get_queryset(self):
-    #     if self.kwargs:
-    #         return ProductCategory.objects.filter(id=self.kwargs.get('pk'))
-    #     else:
-    #         return ProductCategory.objects.all()
-
 
 class CategoryDeleteView(DeleteView, BaseClassContextMixin, CustomDispatchMixin):
     model = ProductCategory
@@ -71,7 +65,10 @@ class CategoryDeleteView(DeleteView, BaseClassContextMixin, CustomDispatchMixin)
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.is_active = False if self.object.is_active else True
-        self.object.product_set.update(is_active=False)
+        if self.object.is_active:
+            Product.objects.filter(category=self.object).update(is_active=True)
+        else:
+            Product.objects.filter(category=self.object).update(is_active=False)
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
 
