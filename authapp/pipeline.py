@@ -49,7 +49,7 @@ def save_user_profile(backend, user, response, *args, **kwargs):
                 photo.write(photo_response.content)
             user.image = path_photo
         if data['locale']:
-            user.userprofile.langs = data['locale'].upper()
+            user.userprofile.langs = data['locale'].upper() if len(data['locale']) > 0 else 'EN'
         user.save()
     else:
         return
