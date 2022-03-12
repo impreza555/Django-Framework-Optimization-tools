@@ -67,6 +67,9 @@ class TestUserManagement(TestCase):
         activation_url = f"{settings.DOMAIN_NAME}/users/verify/{new_user.email}/{new_user.activation_key}/"
         response = self.client.get(activation_url)
         self.assertEqual(response.status_code, 200)
+        self.assertFalse(new_user.is_active)
+        new_user.refresh_from_db()
+        self.assertTrue(new_user.is_active)
         # данные нового пользователя
         self.client.login(username=new_user_data['username'], password=new_user_data['password1'])
         # логинимся
