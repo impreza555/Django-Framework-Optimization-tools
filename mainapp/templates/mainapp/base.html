@@ -12,6 +12,15 @@
 
     <title>{{ title }}</title>
     <meta name="csrf-token" content="{{ csrf_token }}">
+    <style>
+       .user_avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 100px;
+            border: 2px solid #FFFFFF80;
+            margin-top: 5px;
+       }
+   </style>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static  'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -47,6 +56,9 @@
                                 class="fas fa-sign-in-alt"></i></a>
                     </li>
                 {% else %}
+                    <li class="nav-item">
+                      <img class="user_avatar" src="{% if user.image %}{{ user.image.url }} {% else %} {% static 'vendor/img/users/default_avatar.jpg' %} {% endif %}">
+                    </li>
                     <li class="nav-item">
                         <div class="dropdown">
                             <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown">
