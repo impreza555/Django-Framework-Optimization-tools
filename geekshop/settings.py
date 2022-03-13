@@ -37,7 +37,7 @@ SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
