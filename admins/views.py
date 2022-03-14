@@ -5,6 +5,8 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView, TemplateView
 from mainapp.mixin import BaseClassContextMixin, CustomDispatchMixin
 from mainapp.models import Product, ProductCategory
+from django.db import connection
+from django.db.models import F
 
 
 class IndexTemplateView(TemplateView):
@@ -54,12 +56,6 @@ class CategoryListView(ListView, BaseClassContextMixin, CustomDispatchMixin):
     template_name = 'admins/admin-category-read.html'
     title = 'Админка | Список категорий'
 
-    def get_queryset(self):
-        if self.kwargs:
-            return ProductCategory.objects.filter(id=self.kwargs.get('pk'))
-        else:
-            return ProductCategory.objects.all()
-
 
 class CategoryDeleteView(DeleteView, BaseClassContextMixin, CustomDispatchMixin):
     model = ProductCategory
@@ -69,6 +65,10 @@ class CategoryDeleteView(DeleteView, BaseClassContextMixin, CustomDispatchMixin)
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.is_active = False if self.object.is_active else True
+        if self.object.is_active:
+            Product.objects.filter(category=self.object).update(is_active=True)
+        else:
+            Product.objects.filter(category=self.object).update(is_active=False)
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
 
@@ -79,6 +79,20 @@ class CategoryUpdateView(UpdateView, BaseClassContextMixin, CustomDispatchMixin)
     form_class = CategoryUpdateFormAdmin
     title = 'Админка | Обновления категории'
     success_url = reverse_lazy('admins:admin_category')
+
+    def form_valid(self, form):
+        if 'discount' in form.cleaned_data:
+            discount = form.cleaned_data['discount']
+            if discount:
+                print(f'применяется скидка {discount} % к товарам категории {self.object.name}')
+                self.object.product_set.update(price=F('price') * (1 - discount / 100))
+                self.db_profile_by_type(self.__class__, 'UPDATE', connection.queries)
+        return HttpResponseRedirect(self.get_success_url())
+
+    def db_profile_by_type(self, prefix, type, queries):
+        update_queries = list(filter(lambda x: type in x['sql'], queries))
+        print(f'db_profile {type} for {prefix}:')
+        [print(query['sql']) for query in update_queries]
 
 
 class CategoryCreateView(CreateView, BaseClassContextMixin, CustomDispatchMixin):
